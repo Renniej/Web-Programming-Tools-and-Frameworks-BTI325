@@ -1,4 +1,5 @@
 var Data_Service = require("./data-service.js")
+var Promise = require('promise');
 var express = require("express"); //express module
 var app = express(); //express application
 
@@ -10,6 +11,8 @@ app.use(express.static('public'));
 function On_HTTP_Start(){
     console.log("Express http server listening on " + HTTP_PORT);
 }
+
+
 
 app.get('/about', function(req, res) {
     res.sendFile("/views/about.html", {root: __dirname});
@@ -30,7 +33,8 @@ app.get('/employees', function(req,res){
 
 app.get('*', function(req,res){  //404 Error
 
-    res.send("404 ERROR", 404);
+   res.send("404 ERROR").status(404);
+  
 
 });
 
