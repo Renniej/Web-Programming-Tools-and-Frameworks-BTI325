@@ -27,23 +27,49 @@ app.get('/', function(req, res){
 
 app.get('/employees', function(req,res){
 
-        res.send(Data_Service.getEmployees());
+        Data_Service.getAllEmployees.then(function(EMP_FILE){
+            res.send(JSON.stringify(EMP_FILE));
+        }).catch(function(err){
+            console.log(err.message);
+            res.status(500).JSON({error : err.message})
+        })
+
+});
+
+app.get('/managers', function(req,res){
+
+    Data_Service.getManagers.then(function(managers){
+        res.send(JSON.stringify(managers));
+    }).catch(function(err){
+        console.log(err.message);
+
+        res.status(500).json({error: err.message})
+    })
+
+})
+
+app.get('/departments', function(req,res){
+
+    Data_Service.getDepartments.then(function(FILE){
+
+       res.send(JSON.stringify(FILE));
+     
+
+    }).catch(function(err){
+
+        console.log(err.message);
+        res.status(500).JSON({error : err.message})
+
+    });
 
 });
 
 app.get('*', function(req,res){  //404 Error
 
    res.send("404 ERROR").status(404);
-  
 
 });
 
-// app.get('/employees', function(req,res){
-
-
-
-
-// });
 
 
 
