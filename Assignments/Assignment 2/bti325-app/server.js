@@ -1,3 +1,15 @@
+/*********************************************************************************
+*  BTI325 – Assignment 02
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name: Tai-Juan Rennie Student ID: 101359172  Date: 10/8/2018
+*
+*  Online (Heroku) Link: https://evening-taiga-56691.herokuapp.com/
+*
+********************************************************************************/ 
+
+
 var Data_Service = require("./data-service.js")
 var Promise = require('promise');
 var express = require("express"); //express module
