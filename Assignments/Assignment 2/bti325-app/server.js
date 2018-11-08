@@ -13,6 +13,7 @@
 var Data_Service = require("./data-service.js")
 var Promise = require('promise');
 var express = require("express"); //express module
+var multer = require("multer"); // Multer module
 var app = express(); //express application
 
 var path = require("path"); //path module
@@ -76,11 +77,34 @@ app.get('/departments', function(req,res){
 
 });
 
+
+
+app.get('/employees/add', function(req, res){
+
+
+    res.sendFile("/views/addEmployee.html", {root : __dirname});
+
+
+});
+
+
+
+app.get('/images/add', function(req, res){
+
+
+    res.sendFile("/views/addImage.html", {root : __dirname});
+
+
+});
+
+
 app.get('*', function(req,res){  //404 Error
 
    res.send("404 ERROR").status(404);
 
 });
+
+
 
 
 
